@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-01-26T00:43:24.477Z",
-    "end": "2021-01-26T00:43:40.844Z",
-    "duration": 16367,
+    "start": "2021-01-26T00:46:08.418Z",
+    "end": "2021-01-26T00:46:27.447Z",
+    "duration": 19029,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7f1028fe-de94-47ce-bad9-874c1d82dad7",
+      "uuid": "5c80295e-e730-48a5-a4bb-2626e3507d34",
       "title": "",
       "fullFile": "cypress/integration/compra.spec.js",
       "file": "cypress/integration/compra.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d10cf954-4c28-467d-9e03-0ffd26c4ec55",
+          "uuid": "932def87-fe93-452e-9c8d-39b7e170317a",
           "title": "Compra",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Efetuar uma compra de produto",
               "fullTitle": "Compra Efetuar uma compra de produto",
               "timedOut": null,
-              "duration": 16295,
+              "duration": 18948,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.backgroundLogin();\ncy.visit('/'); //cy.pause()\nvar nomeProduto = 'Faded Short Sleeve T-shirts';\ncy.contains(nomeProduto).trigger('mouseover');\ncy.contains(nomeProduto).parent() //h5\n.siblings('div.button-container').children('a').first() // add to cart\n.click(); // Validando se o produto foi adicionado com sucesso\n// .icon-ok \ncy.get('.icon-ok ').parent() //h2\n.should('contain.text', 'Product successfully added to your shopping cart');\ncy.get('span#layer_cart_product_title').should('contain.text', nomeProduto);\ncy.get(\".button-container a[href$='controller=order']\").click();\ncy.get(\".cart_navigation a[href$='order&step=1']\").click(); //        cy.get('#email').type('mariana@gmail.com')\n//        cy.get('#passwd').type('piramide')\n//        cy.get('button#SubmitLogin').click()\n// Validando se o endereço de entrega é igual ao de cobrabça\n// [type=checkbox]#addressesAreEquals\n// asserção | atributo | valor\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'checked', 'checked');\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'name', 'same');\ncy.get('button[name=processAddress]').click();\ncy.get('[type=checkbox]#cgv').check();\ncy.get('button[name=processCarrier]').click();\ncy.get('.bankwire').click();\ncy.get('.cart_navigation button[type=submit]').find('span').contains('I confirm my order').click();\ncy.get('.cheque-indent strong').should('contain.text', 'Your order on My Store is complete.');\ncy.get('div.box').invoke('text').then(function (text) {\n  console.log(text);\n  console.log(text.match(/[A-Z][A-Z]+/g)[1]); // 0 -> RTP\n  // 1 -> ID do pedido \n  // escrita de um arquivo json com o conteúdo do pedido\n  // caminho do arquivo (sempre a partir do root)| conteúdo do arquivo\n  cy.writeFile('cypress/fixtures/pedido.json', {\n    id: \"\".concat(text.match(/[A-Z][A-Z]+/g)[1])\n  });\n});\ncy.get(\".cart_navigation a[href$='history']\").click(); //leitura de um arquivo\ncy.readFile('cypress/fixtures/pedido.json').then(function (pedido) {\n  cy.get('tr.first_item .history_link a').should('contain.text', pedido.id);\n}); // html\n// . = classe\n// json - json path\n// . = nivel dentro do caminho do json\n// 1. capturar o texto do box\n// 2. filtrar o texto do box para extrair somente o id do pedido\n// 3. armazenar o ID do pedido de alguma forma \n// 4. obter o ID do pedido armazenado no passo 3 de alguma forma",
               "err": {},
-              "uuid": "9d4d4561-0b4f-48ed-85a4-a55ba994e9f3",
-              "parentUUID": "d10cf954-4c28-467d-9e03-0ffd26c4ec55",
+              "uuid": "53c5db2c-cb75-4f80-bec4-a9e24d0910a2",
+              "parentUUID": "932def87-fe93-452e-9c8d-39b7e170317a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9d4d4561-0b4f-48ed-85a4-a55ba994e9f3"
+            "53c5db2c-cb75-4f80-bec4-a9e24d0910a2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 16295,
+          "duration": 18948,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
